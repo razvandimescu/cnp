@@ -30,7 +30,7 @@ cnpAppModule.factory('cnp_generator', function(counties){
       }
 
       if(date_of_birth){
-        year = date_of_birth.getYear();
+        year = date_of_birth.getFullYear();
       } else{
         year = random_int(1914,2014);
       }
