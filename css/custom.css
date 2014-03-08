@@ -1,0 +1,54 @@
+.container{
+  max-width: 960px;
+}
+
+.tc{
+  text-align: center;
+}
+
+.jumbotron{
+  background: none;
+}
+
+.jumbotron h1{
+  font-size: 60px;
+}
+
+a#options_cmd{
+  text-decoration: none;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.cnp_ctrl_area{
+  text-align: center;
+}
+
+.options_box{
+  margin-top: 15px;
+}
+
+.cnp_display{
+  text-align: center;
+}
+#county_selector,
+#gender_selector{
+  width: 30%;
+}
+
+#county_selector{
+  margin: 0 10px;
+}
+
+.jumbotron .lead{
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+#date_of_birth{
+  margin-right: 10px;
+}
+
+#gender_selector{
+  margin-left: 10px;
+}

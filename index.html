@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Generator de Coduri Numerice Personale - CNP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Generator CNP valid">
+    <meta name="author" content="Razvan Dimescu - Nagemus">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+  </head>
+
+  <body style="zoom: 100%; " ng-app="cnpApp">
+
+    <div class="container">
+
+      <h3 class="muted"><a href="http://ro.wikipedia.org/wiki/Cod_numeric_personal" target="_blank">Generator de Coduri Numerice Personale</a></h3>
+
+      <hr>
+
+      <div class="jumbotron" ng-controller="CnpCtrl" ng-cloak>
+        <h1 class="tc">Vreau un CNP aleator</h1>
+        <p class="lead">De ce exista aceasta pagina? Pentru ca sunt site-uri care iti cer CNP-ul fara sa aiba un motiv valid. Solutia este simpla: genereaza unul!</p>
+
+        <div class="alert alert-info cnp_display fade in" ng-show="display_alert">
+          <button type="button" class="close" aria-hidden="true" ng-click="hideAlert()">&times;</button>
+          <strong>CNP:</strong> {{ cnp }}
+        </div>
+        <div class="cnp_ctrl_area">
+          <a class="btn btn-success btn-lg" ng-click="generateCNP()">Genereaza CNP</a>
+
+          <a id="options_cmd" ng-click="toggleOptions()"><span class="glyphicon glyphicon-cog"></span> Optiuni <span class="caret"></span> </a>
+          <div ng-show="display_options" class="options_box">
+
+            <p class="input-group">
+              <input type="text" id = "date_of_birth" class="form-control" datepicker-popup="{{format}}" ng-model="date_of_birth" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            <select class="form-control" id="county_selector" ng-click="countySelect()" ng-model="county">
+              <option value="" selected>Judet</option>
+              <option ng-repeat="county in counties" value="{{county.cod}}">{{county.judet}}</option>
+            </select>
+            <select class="form-control" id="gender_selector" ng-model="gender">
+              <option selected="selected" value="">Sex</option>
+              <option value="m">Masculin</option>
+              <option value="f">Feminin</option>
+            </select>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="row marketing">
+        <div class="col-sm-6">
+          <h4>Calcularea RCA-ului</h4>
+          <p>Util cand vrei sa vezi doar oferta fara a plasa o comanda.</p>
+        </div>
+
+        <div class="col-sm-6">
+          <h4>Cont la site-uri de cumparaturi</h4>
+          <p>Util cand site-urile de cumparaturi iti cer cnp-ul fara nici un sens.</p>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="row comments">
+        <div class="col-md-12">
+          <div id="conversait_area"></div>
+          <script type="text/javascript">
+          /*
+            var conversait_sitename = "cnp";
+            (function() {
+              var conversait = document.createElement("script"); 
+              conversait.type = "text/javascript"; 
+              conversait.async = true;
+              conversait.src = "http://www.theburn-zone.com/web/js/embed.js";
+              (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(conversait);
+            })();
+            */
+          </script>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="footer">
+        <p>&copy; Nagemus 2014</p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://underscorejs.org/underscore-min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/ui-bootstrap-0.10.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/custom.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>
