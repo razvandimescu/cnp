@@ -13,6 +13,12 @@
 .jumbotron h1{
   font-size: 60px;
 }
+.muted a{
+  color: rgb(51,51,51);
+}
+.muted a:hover{
+  text-decoration: none;
+}
 
 a#options_cmd{
   text-decoration: none;
